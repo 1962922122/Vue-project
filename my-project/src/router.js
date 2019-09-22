@@ -1,25 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from './views/tabar/Home.vue'
+import Mall from './views/tabar/Mall.vue'
+import Personal from './views/tabar/Personal.vue'
+import Shopcar from './views/tabar/Shopcar.vue'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
+  //更改路由默认选中类
+  linkActiveClass:"mui-active",
   routes: [
     {
       path: '/',
-      name: 'home',
+     redirect:'/home'
+    },
+    {
+      path: '/home',
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/mall',
+      component: Mall
+    },
+    {
+      path: '/shopcar',
+      component: Shopcar
+    },
+    {
+      path: '/personal',
+      component: Personal
     }
   ]
 })
